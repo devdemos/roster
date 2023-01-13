@@ -23,9 +23,17 @@ A defualt CSV file that can contains a list of names to use as part of the roste
 ## Run script 
 You can run the script by using the command line and passing it the necessary arguments. As an example:
 
-`python roster.py names.csv 16-01-2023`
+`python roster.py  names.csv 01-01-2023 -w 4`
+This command will run the script, passing in the file path of the CSV file containing the names, the starting date in the format DD-MM-YYYY, the number of weeks to generate the roster for as 4, and the number of people to assign per week as 2 (the default value).
 
-This will execute the script with the names file 'names.csv' and start date " as parameters.
+You can also specify the number of people per week while running the script:
+
+`python roster.py names.csv 01-01-2023 -w 4 -n 3`
+
+This command will run the script, passing in the file path of the CSV file containing the names, the starting date in the format DD-MM-YYYY, the number of weeks to generate the roster for as 4, and the number of people to assign per week as 3.
+
+Please note that you have to provide the name of your script , the name of the csv file and the date in the format "DD-MM-YYYY" and the number of weeks.
+
 
 ```
 Week | Date       | Names
@@ -34,3 +42,6 @@ Week | Date       | Names
    2 | 23/01/2023 | Person3 and Person1
    3 | 30/01/2023 | Person4 and Person5
 ```
+
+## Limitations 
+As currently written, the script is limited by the number of names in the CSV file. If the number of weeks specified by the user exceeds the number of possible pairings, the roster generates the maximum number of possible pairings rather than raising an error.
